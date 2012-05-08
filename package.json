@@ -1,0 +1,30 @@
+{
+  "name": "node-boilerplate",
+  "subdomain": "node-boilerplate",
+  "scripts": {
+    "start": "coffee app.coffee"
+  },
+  "version": "0.0.0",
+  "author": "Aaditya Bhatia <aadityabhatia@gmail.com>",
+  "contributors": [
+    "Aaditya Bhatia <aadityabhatia@gmail.com>"
+  ],
+  "description": "production-ready node skeleton",
+  "dependencies": {
+    "jade": "~0.25",
+    "connect-assets": "~2.1",
+    "coffee-script": "~1.3",
+    "express": "~2.5",
+    "stylus": "~0.26"
+  },
+  "engines": {
+    "node": "v0.6.x"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aadityabhatia/node-boilerplate.git"
+  },
+  "main": "app.coffee"
+}
