@@ -1,10 +1,17 @@
 html
 	head
-		title Node Boilerplate
+		title Pyrefly
 		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
+		script(src="/socket.io/socket.io.js")
 		!= js('client')
 		!= css('global')
 
 	body
-		h1 Welcome to the Node Boilerplate
+		h1 Pyrefly
+		h2 Control Panel
+		input.persistent#txtRoom(placeholder='Room ID')
+		input#txtNick(placeholder='Nickname')
+		button#btnJoin Join
+		h3 Output:
 		#output
+
