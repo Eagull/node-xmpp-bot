@@ -6,13 +6,12 @@ config = require 'nconf'
 junction = require 'junction'
 ping = require 'junction-ping'
 
-config.file
-	file: 'config.json'
+config.env().file(file: 'config.json')
 
 xmppOptions =
 	type: 'client'
-	jid: config.get 'xmpp:id'
-	password: config.get 'xmpp:password'
+	jid: config.get 'xmppUser'
+	password: config.get 'xmppPassword'
 
 app = express.createServer()
 io = require('socket.io').listen(app)

@@ -1,7 +1,5 @@
 {
-	"xmpp": {
-		"id": "test@eagull.net",
-		"password": "abc123"
-	}
+	"xmppUser": "test@eagull.net",
+	"xmppPassword": "abc123"
 }
 
