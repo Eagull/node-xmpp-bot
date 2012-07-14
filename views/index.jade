@@ -9,9 +9,13 @@ html
 	body
 		h1 Pyrefly
 		h2 Control Panel
+		select#rooms
+			option Rooms
 		input.persistent#txtRoom(placeholder='Room ID')
 		input#txtNick(placeholder='Nickname')
 		button#btnJoin Join
-		h3 Output:
-		#output
+		div#roster
+		div#output
+		input#txtMsg(placeholder='Message')
+		button#btnSend Send
 
