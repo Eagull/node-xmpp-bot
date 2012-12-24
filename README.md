@@ -1,8 +1,8 @@
 # nodejs-based XMPP Bot
 
-A simple XMPP bot designed to run on a nodejs server, controlled remotely via a Web interface.
+A simple XMPP bot designed to help with MUC administration.
 
-It is based on [node-xmpp](https://github.com/astro/node-xmpp) and [junction](https://github.com/jaredhanson/junction).
+It is based on [node-xmpp](https://github.com/astro/node-xmpp) and [junction](https://github.com/jaredhanson/junction), and makes use of [xmpp-muc-handler](https://github.com/aadityabhatia/node-xmpp-muc-handler).
 
 ## License
 
