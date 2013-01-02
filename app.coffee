@@ -35,10 +35,11 @@ connection = client.connect(xmppOptions).on 'online', ->
 	util.log 'Connected as: ' + @jid
 	@send new junction.elements.Presence()
 	if not connection then return console.error "Not connected"
+	connection.on 'error', (err) -> console.error err
+	mucHandler.setConnection(connection)
 	room = 'test@chat.eagull.net'
 	nick = 'Monkey'
 	connection.send new junction.elements.Presence("#{room}/#{nick}")
-	connection.on 'error', (err) -> console.error err
 	room = mucHandler.addRoom room
 	room.on 'rosterReady', (user) ->
 		util.log "SelfStatus: " + JSON.stringify user
@@ -63,4 +64,31 @@ connection = client.connect(xmppOptions).on 'online', ->
 		out = "<#{data.nick}> #{data.text}"
 		if data.delay then out += " (sent at #{data.delay})"
 		util.log out
+	room.on 'groupMessage', (data) ->
+		return if data.delay
+		text = data.text.trim()
+		command = "!say "
+		if text.substring(0, command.length) is command
+			room.sendGroup text.substring(command.length)
+			return
+		command = "!member "
+		if text.substring(0, command.length) is command
+			room.setAffiliation text.substring(command.length), 'member'
+			return
+		command = "!demember "
+		if text.substring(0, command.length) is command
+			room.setAffiliation text.substring(command.length), 'none'
+			return
+		command = "!voice "
+		if text.substring(0, command.length) is command
+			room.setRole text.substring(command.length), 'participant'
+			return
+		command = "!devoice "
+		if text.substring(0, command.length) is command
+			room.setRole text.substring(command.length), 'visitor'
+			return
+		command = "!kick "
+		if text.substring(0, command.length) is command
+			room.setRole text.substring(command.length), 'none'
+			return
 
